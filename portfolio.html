@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dikshit Dhital - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0a0f;
+            color: #e6e6e6;
+            overflow-x: hidden;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #18ece9;
+            border-radius: 4px;
+        }
+
+        /* ===== HEADER BG ===== */
+        .bg-hero {
+            background: linear-gradient(to bottom, rgba(10, 10, 15, 0.9), rgba(10, 10, 15, 0.8)),
+                url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar-blur {
+            backdrop-filter: blur(10px);
+            background: transparent;
+            transition: all 0.4s ease;
+        }
+        .navbar-scrolled {
+            padding: 3px 5%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            background: rgba(10, 10, 15, 0.95);
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            color: #e6e6e6;
+            margin-bottom: 3rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #18ece9, #ff3366);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            background: linear-gradient(45deg, #18ece9, #08b5cc);
+            color: #0a0a0f;
+            box-shadow: 0 4px 15px rgba(24, 236, 233, 0.3);
+            transition: all 0.3s ease;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(24, 236, 233, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #18ece9;
+            border: 2px solid #18ece9;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background: #18ece9;
+            color: #0a0a0f;
+        }
+
+        .btn1, .btn2 {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #18ece9, #08b5cc);
+            color: #0a0a0f;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(24, 236, 233, 0.3);
+        }
+        .btn1:hover, .btn2:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(24, 236, 233, 0.4);
+        }
+
+        /* ===== GRADIENT TEXT ===== */
+        .gradient-text {
+            background: linear-gradient(45deg, #18ece9, #08b5cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== CARDS ===== */
+        .card-bg {
+            background: linear-gradient(145deg, #1a1a2e, #161625);
+        }
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(24, 236, 233, 0.2);
+        }
+
+        /* ===== PROJECTS ===== */
+        .project-bg {
+            background: linear-gradient(145deg, #1a1a2e, #161625);
+        }
+        .project-hover {
+            transition: all 0.4s ease;
+        }
+        .project-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(24, 236, 233, 0.2);
+        }
+        .project-img {
+            overflow: hidden;
+            position: relative;
+            height: 200px;
+        }
+        .project-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, #1a1a2e 100%);
+            opacity: 0.7;
+        }
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .project-hover:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        /* ===== TABS ===== */
+        .tablinks {
+            margin-right: 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 10px 0;
+            position: relative;
+            transition: all 0.3s ease;
+            color: #a0a0a0;
+        }
+        .tablinks:hover {
+            color: #18ece9;
+        }
+        .tablinks.activelink {
+            color: #18ece9;
+        }
+        .tablinks.activelink::after {
+            content: "";
+            width: 100%;
+            height: 3px;
+            background: #18ece9;
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .tabcontents {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .tabcontents.activetab {
+            display: block;
+        }
+
+        .tabcontents ul {
+            list-style: none;
+        }
+        .tabcontents ul li {
+            margin: 1.2rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #a0a0a0;
+            transition: all 0.3s ease;
+        }
+        .tabcontents ul li:hover {
+            color: #e6e6e6;
+            transform: translateX(5px);
+        }
+        .tabcontents ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #18ece9;
+            font-size: 1.2rem;
+        }
+        .tabcontents ul li span {
+            color: #18ece9;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* ===== SOCIAL ICONS ===== */
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            color: #a0a0a0;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #1a1a2e;
+        }
+        .social-icon:hover {
+            color: #18ece9;
+            transform: translateY(-5px);
+            background: linear-gradient(145deg, #1a1a2e, #161625);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== FORM ===== */
+        form input,
+        form textarea {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: #1a1a2e;
+            padding: 15px 20px;
+            margin: 12px 0;
+            color: #e6e6e6;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        form input:focus,
+        form textarea:focus {
+            border-color: #18ece9;
+            box-shadow: 0 0 15px rgba(24, 236, 233, 0.2);
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #18ece9, #08b5cc);
+            color: #0a0a0f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(24, 236, 233, 0.3);
+            z-index: 999;
+        }
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(24, 236, 233, 0.4);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards 0.5s;
+        }
+
+        /* ===== FADE IN ON SCROLL ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease;
+        }
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ===== DECORATIVE CIRCLES ===== */
+        .circle-top-left {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(24, 236, 233, 0.05);
+            top: -150px;
+            left: -150px;
+        }
+        .circle-bottom-right {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 51, 102, 0.05);
+            bottom: -100px;
+            right: -100px;
+        }
+
+        /* ===== MOBILE MENU ===== */
+        .menu-btn {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: flex !important;
+                position: fixed;
+                right: 20px;
+                top: 20px;
+                z-index: 1001;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: #e6e6e6;
+                background: #1a1a2e;
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            nav ul {
+                flex-direction: column;
+                background: #1a1a2e;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                padding-top: 80px;
+                z-index: 999;
+                transition: right 0.5s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            }
+            nav ul.show {
+                right: 0;
+            }
+            nav ul li {
+                margin: 20px 0;
+                text-align: center;
+            }
+
+            .tabTitle {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .tablinks {
+                margin: 0 !important;
+            }
+
+            .herosectiontext h1 {
+                font-size: 2.5rem !important;
+            }
+            .hero-cta {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Nav links underline effect */
+        .nav-link {
+            color: #e6e6e6;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #18ece9;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #18ece9;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Logo hover */
+        .logo-img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border: 2px solid #18ece9;
+            transition: all 0.3s ease;
+        }
+        .logo-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #18ece9;
+        }
+
+        /* Hero text span underline */
+        .hero-name {
+            color: #18ece9;
+            position: relative;
+            display: inline-block;
+        }
+        .hero-name::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(24, 236, 233, 0.2);
+            z-index: -1;
+        }
+
+        /* Contact left heading underline */
+        .contact-heading {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            color: #e6e6e6;
+        }
+        .contact-heading::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, #18ece9, #ff3366);
+            left: 0;
+            bottom: -10px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== SCROLL TO TOP ===== -->
+    <div class="scroll-top" id="scrollTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <div id="header" class="min-h-screen w-full bg-hero flex items-center relative">
+        <div class="container mx-auto px-[5%] py-5 max-w-[1200px]">
+
+            <!-- Navbar -->
+            <div id="navbar" class="navbar-blur fixed top-0 left-0 w-full px-[5%] py-[5px] flex justify-between items-center z-[1000] transition-all duration-300">
+                <img src="logo.jpg" alt="logo" class="logo-img" />
+
+                <div class="menu-btn" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <nav>
+                    <ul id="nav-menu" class="flex list-none">
+                        <li class="mx-[15px]"><a href="#header" class="nav-link">Home</a></li>
+                        <li class="mx-[15px]"><a href="#aboutus" class="nav-link">About me</a></li>
+                        <li class="mx-[15px]"><a href="#project" class="nav-link">Services</a></li>
+                        <li class="mx-[15px]"><a href="#myprojects" class="nav-link">Projects</a></li>
+                        <li class="mx-[15px]"><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Hero Text -->
+            <div class="max-w-[800px] mt-[80px] animate-fade-up">
+                <p class="text-[1.5rem] mb-4 text-[#18ece9] font-medium">FrontEnd Developer</p>
+                <h1 class="text-[3.5rem] mb-6 leading-[1.2] text-[#e6e6e6]">Welcome, this is me <span class="hero-name">Dikshit Dhital</span></h1>
+                <p class="text-[1.2rem] text-[#a0a0a0]">I create engaging, user-friendly web experiences that leave a lasting impression.</p>
+                <div class="hero-cta mt-10 flex gap-5">
+                    <button class="btn-primary"><i class="fas fa-paper-plane"></i> Hire Me</button>
+                    <button class="btn-outline"><i class="fas fa-project-diagram"></i> View Projects</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ABOUT ===== -->
+    <div id="aboutus" class="bg-[#1a1a2e] py-20 relative overflow-hidden">
+        <div class="circle-top-left"></div>
+        <div class="circle-bottom-right"></div>
+
+        <div class="container mx-auto px-[5%] max-w-[1200px] relative z-[1]">
+            <h2 class="section-title">About Me</h2>
+
+            <div class="flex flex-wrap justify-between gap-10">
+                <!-- Image -->
+                <div class="flex-1 min-w-[300px] rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.3)] fade-in-left">
+                    <img src="hello.jpg" alt="Dikshit Dhital" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                </div>
+
+                <!-- Text -->
+                <div class="flex-[2] min-w-[300px]">
+                    <p class="text-[1.1rem] mb-8 text-[#a0a0a0] leading-[1.8]">My name is Dikshit Dhital, a passionate frontend developer with a keen eye for creating engaging web experiences. I specialize in building responsive and performant web applications that provide seamless user experiences.</p>
+
+                    <!-- Tabs -->
+                    <div class="tabTitle flex border-b border-[rgba(255,255,255,0.1)] flex-wrap my-8">
+                        <p class="tablinks activelink" onclick="opentab(event, 'education')">Education</p>
+                        <p class="tablinks" onclick="opentab(event, 'trophy')">Achievements</p>
+                        <p class="tablinks" onclick="opentab(event, 'hobby')">Hobbies</p>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="tabcontents activetab" id="education">
+                        <ul>
+                            <li><span>2079</span>BLE PASS, SHREE MAVI, LETANG-9</li>
+                            <li><span>2081</span>SEE PASS, SHREE SHANTI BHAGAWATI SEC. SCHOOL, LETANG-4</li>
+                            <li><span>2083</span>+2 PASS, SHREE SHANTI BHAGAWATI SEC. SCHOOL, LETANG-4</li>
+                        </ul>
+                    </div>
+
+                    <!-- Achievements -->
+                    <div class="tabcontents" id="trophy">
+                        <ul>
+                            <li><span>INTERSCHOOL RACE COMPETITION</span>RUNNER UP</li>
+                            <li><span>INTERSCHOOL QUIZ COMPETITION</span>GOLD MEDAL</li>
+                        </ul>
+                    </div>
+
+                    <!-- Hobbies -->
+                    <div class="tabcontents" id="hobby">
+                        <ul>
+                            <li><span>SLEEPING</span>Recharging for productivity</li>
+                            <li><span>WATCHING ANIME</span>Exploring Japanese animation</li>
+                            <li><span>PLAYING FOOTBALL</span>Staying active and competitive</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SERVICES ===== -->
+    <div id="project" class="bg-[#0a0a0f] py-20">
+        <div class="container mx-auto px-[5%] max-w-[1200px]">
+            <h2 class="section-title">My Services</h2>
+
+            <div class="flex flex-wrap gap-[30px] justify-center">
+                <!-- Card 1 -->
+                <div class="card-bg rounded-[15px] p-10 flex-1 min-w-[300px] shadow-[0_10px_20px_rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] card-hover fade-in">
+                    <i class="fa-solid fa-paint-brush text-[3rem] mb-6 gradient-text"></i>
+                    <h1 class="text-[1.5rem] mb-4 text-[#e6e6e6]">Web Design</h1>
+                    <p class="text-[#a0a0a0] leading-[1.7]">Creating visually appealing and user-friendly website designs that enhance user experience and engagement with modern UI/UX principles.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-bg rounded-[15px] p-10 flex-1 min-w-[300px] shadow-[0_10px_20px_rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] card-hover fade-in">
+                    <i class="fa-solid fa-code text-[3rem] mb-6 gradient-text"></i>
+                    <h1 class="text-[1.5rem] mb-4 text-[#e6e6e6]">FrontEnd Development</h1>
+                    <p class="text-[#a0a0a0] leading-[1.7]">Building responsive and interactive websites using HTML, CSS, JavaScript and modern frameworks to bring designs to life.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PROJECTS ===== -->
+    <div id="myprojects" class="bg-[#1a1a2e] py-20 relative overflow-hidden">
+        <div class="container mx-auto px-[5%] max-w-[1200px]">
+            <h2 class="section-title">My Projects</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px]">
+                <!-- Project 1 -->
+                <div class="project-bg rounded-[15px] overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] project-hover fade-in">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="E-commerce Website" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-[1.3rem] mb-3 text-[#e6e6e6]">E-commerce Website</h3>
+                        <p class="text-[#a0a0a0] mb-4 leading-[1.6]">A fully responsive e-commerce platform with product filtering, cart functionality, and secure checkout.</p>
+                        <div class="flex flex-wrap gap-[10px] mb-4">
+                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">HTML</span>
+                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">CSS</span>
+                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">JavaScript</span>
+                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">React</span>
+                        </div>
+                        <div class="flex gap-[15px]">
+                            <a href="#" class="text-[#e6e6e6] no-underline flex items-center gap-[5px] transition-all duration-300 font-medium text-[0.9rem] hover:text-[#18ece9] hover:-translate-y-[2px]"><i class="fas fa-globe"></i> Live Demo</a>
+                            <a href="#" class="text-[#e6e6e6] no-underline flex items-center gap-[5px] transition-all duration-300 font-medium text-[0.9rem] hover:text-[#18ece9] hover:-translate-y-[2px]"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-bg rounded-[15px] overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] project-hover fade-in">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Weather App" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-[1.3rem] mb-3 text-[#e6e6e6]">Weather Application</h3>
+                        <p class="text-[#a0a0a0] mb-4 leading-[1.6]">A weather forecast app that displays current and future weather conditions based on user location.</p>
+                        <div class="flex flex-wrap gap-[10px] mb-4">
+                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">HTML</span>
+                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">CSS</span>
+                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">JavaScript</span>
+                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">API</span>
+                        </div>
+                        <div class="flex gap-[15px]">
+                            <a href="#" class="text-[#e6e6e6] no-underline flex items-center gap-[5px] transition-all duration-300 font-medium text-[0.9rem] hover:text-[#18ece9] hover:-translate-y-[2px]"><i class="fas fa-globe"></i> Live Demo</a>
+                            <a href="#" class="text-[#e6e6e6] no-underline flex items-center gap-[5px] transition-all duration-300 font-medium text-[0.9rem] hover:text-[#18ece9] hover:-translate-y-[2px]"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-bg rounded-[15px] overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] project-hover fade-in">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Task Manager" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-[1.3rem] mb-3 text-[#e6e6e6]">Task Management App</h3>
+                        <p class="text-[#a0a0a0] mb-4 leading-[1.6]">A productivity application that helps users organize tasks with drag-and-drop functionality.</p>
+                        <div class="flex flex-wrap gap-[10px] mb-4">
+                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">HTML</span>
+                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">CSS</span>
+                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">JavaScript</span>
+                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">Firebase</span>
+                        </div>
+                        <div class="flex gap-[15px]">
+                            <a href="#" class="text-[#e6e6e6] no-underline flex items-center gap-[5px] transition-all duration-300 font-medium text-[0.9rem] hover:text-[#18ece9] hover:-translate-y-[2px]"><i class="fas fa-globe"></i> Live Demo</a>
+                            <a href="#" class="text-[#e6e6e6] no-underline flex items-center gap-[5px] transition-all duration-300 font-medium text-[0.9rem] hover:text-[#18ece9] hover:-translate-y-[2px]"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CONTACT ===== -->
+    <div id="contact" class="bg-[#0a0a0f] py-20">
+        <div class="container mx-auto px-[5%] max-w-[1200px]">
+            <div class="flex flex-wrap gap-10">
+                <!-- Left -->
+                <div class="flex-1 min-w-[300px]">
+                    <h1 class="contact-heading">Contact Me</h1>
+                    <p class="my-6 text-[1.1rem] flex items-center text-[#a0a0a0]"><i class="fa-solid fa-paper-plane text-[#18ece9] mr-4 text-[1.5rem] w-[30px]"></i>dikshitdhital5@gmail.com</p>
+                    <p class="my-6 text-[1.1rem] flex items-center text-[#a0a0a0]"><i class="fa-solid fa-phone text-[#18ece9] mr-4 text-[1.5rem] w-[30px]"></i>9827028290</p>
+                    <p class="my-6 text-[1.1rem] flex items-center text-[#a0a0a0]"><i class="fa-solid fa-location-dot text-[#18ece9] mr-4 text-[1.5rem] w-[30px]"></i>Letang, Nepal</p>
+
+                    <div class="my-8">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+
+                    <button class="btn1"><i class="fas fa-download"></i> Download CV</button>
+                </div>
+
+                <!-- Right -->
+                <div class="flex-1 min-w-[300px]">
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+
+                        
+  <input type="hidden" name="access_key" value="524aba3c-57f0-4dfb-a053-f31f63a948f4">
+                        <input type="text" name="name" placeholder="Enter your name" required />
+                        <input type="email" name="email" placeholder="Enter your email" required />
+                        <textarea name="message" rows="6" placeholder="Enter your message" required></textarea>
+                        <button type="submit" class="btn2"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== COPYRIGHT ===== -->
+    <div id="copyright" class="bg-[#1a1a2e] py-[25px] text-center border-t border-[rgba(255,255,255,0.05)]">
+        <p class="text-[#a0a0a0] text-base">Copyright <i class="fa-regular fa-copyright"></i> 2023 Dikshit. Made with <i style="color: red;" class="fa-solid fa-heart"></i></p>
+    </div>
+
+    <script src="portfolio.js"></script>
+
+</body>
+</html>
