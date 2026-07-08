@@ -84,5 +84,3 @@
             });
         }
 
-        // ===== CONTACT FORM =====
-        var form = document.getElementById('contact-form');
