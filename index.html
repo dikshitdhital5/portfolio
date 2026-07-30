@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +10,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -17,12 +19,14 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Poppins', sans-serif;
             background: #0a0a0f;
             color: #e6e6e6;
             overflow-x: hidden;
         }
+
         html {
             scroll-behavior: smooth;
         }
@@ -31,9 +35,11 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #0a0a0f;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #18ece9;
             border-radius: 4px;
@@ -54,6 +60,7 @@
             background: transparent;
             transition: all 0.4s ease;
         }
+
         .navbar-scrolled {
             padding: 3px 5%;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
@@ -71,6 +78,7 @@
             color: #e6e6e6;
             margin-bottom: 3rem;
         }
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -99,6 +107,7 @@
             align-items: center;
             gap: 10px;
         }
+
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(24, 236, 233, 0.4);
@@ -118,12 +127,14 @@
             gap: 10px;
             transition: all 0.3s ease;
         }
+
         .btn-outline:hover {
             background: #18ece9;
             color: #0a0a0f;
         }
 
-        .btn1 a, .btn2 {
+        .btn1 a,
+        .btn2 {
             padding: 12px 30px;
             background: linear-gradient(45deg, #18ece9, #08b5cc);
             color: #0a0a0f;
@@ -138,7 +149,9 @@
             gap: 10px;
             box-shadow: 0 4px 15px rgba(24, 236, 233, 0.3);
         }
-        .btn1 a:hover, .btn2:hover {
+
+        .btn1 a:hover,
+        .btn2:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(24, 236, 233, 0.4);
         }
@@ -155,9 +168,11 @@
         .card-bg {
             background: linear-gradient(145deg, #1a1a2e, #161625);
         }
+
         .card-hover {
             transition: all 0.4s ease;
         }
+
         .card-hover:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
@@ -168,19 +183,23 @@
         .project-bg {
             background: linear-gradient(145deg, #1a1a2e, #161625);
         }
+
         .project-hover {
             transition: all 0.4s ease;
         }
+
         .project-hover:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
             border-color: rgba(24, 236, 233, 0.2);
         }
+
         .project-img {
             overflow: hidden;
             position: relative;
             height: 200px;
         }
+
         .project-img::after {
             content: '';
             position: absolute;
@@ -191,12 +210,14 @@
             background: linear-gradient(to bottom, transparent 0%, #1a1a2e 100%);
             opacity: 0.7;
         }
+
         .project-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
+
         .project-hover:hover .project-img img {
             transform: scale(1.1);
         }
@@ -212,12 +233,15 @@
             transition: all 0.3s ease;
             color: #a0a0a0;
         }
+
         .tablinks:hover {
             color: #18ece9;
         }
+
         .tablinks.activelink {
             color: #18ece9;
         }
+
         .tablinks.activelink::after {
             content: "";
             width: 100%;
@@ -233,6 +257,7 @@
             display: none;
             animation: fadeIn 0.5s ease forwards;
         }
+
         .tabcontents.activetab {
             display: block;
         }
@@ -240,6 +265,7 @@
         .tabcontents ul {
             list-style: none;
         }
+
         .tabcontents ul li {
             margin: 1.2rem 0;
             padding-left: 2rem;
@@ -247,10 +273,12 @@
             color: #a0a0a0;
             transition: all 0.3s ease;
         }
+
         .tabcontents ul li:hover {
             color: #e6e6e6;
             transform: translateX(5px);
         }
+
         .tabcontents ul li::before {
             content: '▹';
             position: absolute;
@@ -258,6 +286,7 @@
             color: #18ece9;
             font-size: 1.2rem;
         }
+
         .tabcontents ul li span {
             color: #18ece9;
             font-weight: 600;
@@ -280,6 +309,7 @@
             border-radius: 50%;
             background: #1a1a2e;
         }
+
         .social-icon:hover {
             color: #18ece9;
             transform: translateY(-5px);
@@ -302,6 +332,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
         }
+
         form input:focus,
         form textarea:focus {
             border-color: #18ece9;
@@ -329,10 +360,12 @@
             box-shadow: 0 5px 15px rgba(24, 236, 233, 0.3);
             z-index: 999;
         }
+
         .scroll-top.active {
             opacity: 1;
             visibility: visible;
         }
+
         .scroll-top:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(24, 236, 233, 0.4);
@@ -344,21 +377,25 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         @keyframes fadeUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         .animate-fade-up {
             opacity: 0;
             transform: translateY(30px);
@@ -371,15 +408,18 @@
             transform: translateY(30px);
             transition: all 0.8s ease;
         }
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         .fade-in-left {
             opacity: 0;
             transform: translateX(-30px);
             transition: all 0.8s ease;
         }
+
         .fade-in-left.visible {
             opacity: 1;
             transform: translateX(0);
@@ -395,6 +435,7 @@
             top: -150px;
             left: -150px;
         }
+
         .circle-bottom-right {
             position: absolute;
             width: 200px;
@@ -442,9 +483,11 @@
                 transition: right 0.5s ease;
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
             }
+
             nav ul.show {
                 right: 0;
             }
+
             nav ul li {
                 margin: 20px 0;
                 text-align: center;
@@ -454,6 +497,7 @@
                 flex-direction: column;
                 gap: 10px;
             }
+
             .tablinks {
                 margin: 0 !important;
             }
@@ -461,6 +505,7 @@
             .herosectiontext h1 {
                 font-size: 2.5rem !important;
             }
+
             .hero-cta {
                 justify-content: center;
                 flex-wrap: wrap;
@@ -477,6 +522,7 @@
             transition: all 0.3s ease;
             padding: 5px 0;
         }
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -487,9 +533,11 @@
             bottom: 0;
             transition: width 0.3s ease;
         }
+
         .nav-link:hover {
             color: #18ece9;
         }
+
         .nav-link:hover::after {
             width: 100%;
         }
@@ -503,6 +551,7 @@
             border: 2px solid #18ece9;
             transition: all 0.3s ease;
         }
+
         .logo-img:hover {
             transform: scale(1.05);
             box-shadow: 0 0 15px #18ece9;
@@ -514,6 +563,7 @@
             position: relative;
             display: inline-block;
         }
+
         .hero-name::after {
             content: '';
             position: absolute;
@@ -533,6 +583,7 @@
             display: inline-block;
             color: #e6e6e6;
         }
+
         .contact-heading::after {
             content: '';
             position: absolute;
@@ -545,6 +596,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- ===== SCROLL TO TOP ===== -->
@@ -557,7 +609,8 @@
         <div class="container mx-auto px-[5%] py-5 max-w-[1200px]">
 
             <!-- Navbar -->
-            <div id="navbar" class="navbar-blur fixed top-0 left-0 w-full px-[5%] py-[5px] flex justify-between items-center z-[1000] transition-all duration-300">
+            <div id="navbar"
+                class="navbar-blur fixed top-0 left-0 w-full px-[5%] py-[5px] flex justify-between items-center z-[1000] transition-all duration-300">
                 <img src="logo.jpg" alt="logo" class="logo-img" />
 
                 <div class="menu-btn" id="menuBtn">
@@ -578,8 +631,10 @@
             <!-- Hero Text -->
             <div class="max-w-[800px] mt-[80px] animate-fade-up">
                 <p class="text-[1.5rem] mb-4 text-[#18ece9] font-medium">FrontEnd Developer</p>
-                <h1 class="text-[3.5rem] mb-6 leading-[1.2] text-[#e6e6e6]">Welcome, this is me <span class="hero-name">Dikshit Dhital</span></h1>
-                <p class="text-[1.2rem] text-[#a0a0a0]">I create engaging, user-friendly web experiences that leave a lasting impression.</p>
+                <h1 class="text-[3.5rem] mb-6 leading-[1.2] text-[#e6e6e6]">Welcome, this is me <span
+                        class="hero-name">Dikshit Dhital</span></h1>
+                <p class="text-[1.2rem] text-[#a0a0a0]">I create engaging, user-friendly web experiences that leave a
+                    lasting impression.</p>
                 <div class="hero-cta mt-10 flex gap-5">
                     <button class="btn-primary"><i class="fas fa-paper-plane"></i> Hire Me</button>
                     <button class="btn-outline"><i class="fas fa-project-diagram"></i> View Projects</button>
@@ -598,13 +653,17 @@
 
             <div class="flex flex-wrap justify-between gap-10">
                 <!-- Image -->
-                <div class="flex-1 min-w-[300px] rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.3)] fade-in-left">
-                    <img src="hello.jpg" alt="Dikshit Dhital" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                <div
+                    class="flex-1 min-w-[300px] rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.3)] fade-in-left">
+                    <img src="hello.jpg" alt="Dikshit Dhital"
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                 </div>
 
                 <!-- Text -->
                 <div class="flex-[2] min-w-[300px]">
-                    <p class="text-[1.1rem] mb-8 text-[#a0a0a0] leading-[1.8]">My name is Dikshit Dhital, a passionate frontend developer with a keen eye for creating engaging web experiences. I specialize in building responsive and performant web applications that provide seamless user experiences.</p>
+                    <p class="text-[1.1rem] mb-8 text-[#a0a0a0] leading-[1.8]">My name is Dikshit Dhital, a passionate
+                        frontend developer with a keen eye for creating engaging web experiences. I specialize in
+                        building responsive and performant web applications that provide seamless user experiences.</p>
 
                     <!-- Tabs -->
                     <div class="tabTitle flex border-b border-[rgba(255,255,255,0.1)] flex-wrap my-8">
@@ -650,17 +709,21 @@
 
             <div class="flex flex-wrap gap-[30px] justify-center">
                 <!-- Card 1 -->
-                <div class="card-bg rounded-[15px] p-10 flex-1 min-w-[300px] shadow-[0_10px_20px_rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] card-hover fade-in">
+                <div
+                    class="card-bg rounded-[15px] p-10 flex-1 min-w-[300px] shadow-[0_10px_20px_rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] card-hover fade-in">
                     <i class="fa-solid fa-paint-brush text-[3rem] mb-6 gradient-text"></i>
                     <h1 class="text-[1.5rem] mb-4 text-[#e6e6e6]">Web Design</h1>
-                    <p class="text-[#a0a0a0] leading-[1.7]">Creating visually appealing and user-friendly website designs that enhance user experience and engagement with modern UI/UX principles.</p>
+                    <p class="text-[#a0a0a0] leading-[1.7]">Creating visually appealing and user-friendly website
+                        designs that enhance user experience and engagement with modern UI/UX principles.</p>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="card-bg rounded-[15px] p-10 flex-1 min-w-[300px] shadow-[0_10px_20px_rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] card-hover fade-in">
+                <div
+                    class="card-bg rounded-[15px] p-10 flex-1 min-w-[300px] shadow-[0_10px_20px_rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] card-hover fade-in">
                     <i class="fa-solid fa-code text-[3rem] mb-6 gradient-text"></i>
                     <h1 class="text-[1.5rem] mb-4 text-[#e6e6e6]">FrontEnd Development</h1>
-                    <p class="text-[#a0a0a0] leading-[1.7]">Building responsive and interactive websites using HTML, CSS, JavaScript and modern frameworks to bring designs to life.</p>
+                    <p class="text-[#a0a0a0] leading-[1.7]">Building responsive and interactive websites using HTML,
+                        CSS, JavaScript and modern frameworks to bring designs to life.</p>
                 </div>
             </div>
         </div>
@@ -673,26 +736,63 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px]">
                 <!-- Project 1 -->
-                <div class="project-bg rounded-[15px] overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] project-hover fade-in">
+                <div
+                    class="project-bg rounded-[15px] overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] project-hover fade-in">
                     <div class="project-img">
-                        <img src="Screenshot 2026-07-18 164327.png" alt="E-commerce Website" />
+                        <img src="sketch.png" alt="E-commerce Website" />
                     </div>
                     <div class="p-6">
                         <h3 class="text-[1.3rem] mb-3 text-[#e6e6e6]">Sketch</h3>
-                        <p class="text-[#a0a0a0] mb-4 leading-[1.6]">A small functionality to draw anm sketch using Htmlcss and Js.</p>
+                        <p class="text-[#a0a0a0] mb-4 leading-[1.6]">A small functionality to draw anm sketch using
+                            Htmlcss and Js.</p>
                         <div class="flex flex-wrap gap-[10px] mb-4">
-                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">HTML</span>
-                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">CSS</span>
-                            <span class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">JavaScript</span>
+                            <span
+                                class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">HTML</span>
+                            <span
+                                class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">CSS</span>
+                            <span
+                                class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">JavaScript</span>
                         </div>
                         <div class="flex gap-[15px]">
-                            <a href="sketch-git-main-cyvera.vercel.app" class="text-[#e6e6e6] no-underline flex items-center gap-[5px] transition-all duration-300 font-medium text-[0.9rem] hover:text-[#18ece9] hover:-translate-y-[2px]"><i class="fas fa-globe"></i> Live Demo</a>
-                            <a href="https://github.com/dikshitdhital5/Sketch" class="text-[#e6e6e6] no-underline flex items-center gap-[5px] transition-all duration-300 font-medium text-[0.9rem] hover:text-[#18ece9] hover:-translate-y-[2px]"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="sketch.dikshitdhital.com.np"
+                                class="text-[#e6e6e6] no-underline flex items-center gap-[5px] transition-all duration-300 font-medium text-[0.9rem] hover:text-[#18ece9] hover:-translate-y-[2px]"><i
+                                    class="fas fa-globe"></i> Live Demo</a>
+                            <a href="https://github.com/dikshitdhital5/Sketch"
+                                class="text-[#e6e6e6] no-underline flex items-center gap-[5px] transition-all duration-300 font-medium text-[0.9rem] hover:text-[#18ece9] hover:-translate-y-[2px]"><i
+                                    class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
 
-               
+                <!-- Project 2 -->
+                <div
+                    class="project-bg rounded-[15px] overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] project-hover fade-in">
+                    <div class="project-img">
+                        <img src="books.png" alt="E-commerce Website" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-[1.3rem] mb-3 text-[#e6e6e6]">Book management system</h3>
+                        <p class="text-[#a0a0a0] mb-4 leading-[1.6]">A small functionality to manage the books through api and can perform CRUD Operations.</p>
+                        <div class="flex flex-wrap gap-[10px] mb-4">
+                            <span
+                                class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">HTML</span>
+                            <span
+                                class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">CSS</span>
+                            <span
+                                class="bg-[rgba(8,181,204,0.1)] text-[#08b5cc] px-3 py-1 rounded-[20px] text-[0.8rem] font-medium border border-[rgba(8,181,204,0.2)]">JavaScript</span>
+                        </div>
+                        <div class="flex gap-[15px]">
+                            <a href="book.dikshitdhital.com.np"
+                                class="text-[#e6e6e6] no-underline flex items-center gap-[5px] transition-all duration-300 font-medium text-[0.9rem] hover:text-[#18ece9] hover:-translate-y-[2px]"><i
+                                    class="fas fa-globe"></i> Live Demo</a>
+                            <a href="https://github.com/dikshitdhital5/Books-Management-System"
+                                class="text-[#e6e6e6] no-underline flex items-center gap-[5px] transition-all duration-300 font-medium text-[0.9rem] hover:text-[#18ece9] hover:-translate-y-[2px]"><i
+                                    class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+
 
             </div>
         </div>
@@ -705,9 +805,14 @@
                 <!-- Left -->
                 <div class="flex-1 min-w-[300px]">
                     <h1 class="contact-heading">Contact Me</h1>
-                    <p class="my-6 text-[1.1rem] flex items-center text-[#a0a0a0]"><i class="fa-solid fa-paper-plane text-[#18ece9] mr-4 text-[1.5rem] w-[30px]"></i>dikshitdhital5@gmail.com</p>
-                    <p class="my-6 text-[1.1rem] flex items-center text-[#a0a0a0]"><i class="fa-solid fa-phone text-[#18ece9] mr-4 text-[1.5rem] w-[30px]"></i>9827028290</p>
-                    <p class="my-6 text-[1.1rem] flex items-center text-[#a0a0a0]"><i class="fa-solid fa-location-dot text-[#18ece9] mr-4 text-[1.5rem] w-[30px]"></i>Letang, Nepal</p>
+                    <p class="my-6 text-[1.1rem] flex items-center text-[#a0a0a0]"><i
+                            class="fa-solid fa-paper-plane text-[#18ece9] mr-4 text-[1.5rem] w-[30px]"></i>dikshitdhital5@gmail.com
+                    </p>
+                    <p class="my-6 text-[1.1rem] flex items-center text-[#a0a0a0]"><i
+                            class="fa-solid fa-phone text-[#18ece9] mr-4 text-[1.5rem] w-[30px]"></i>9827028290</p>
+                    <p class="my-6 text-[1.1rem] flex items-center text-[#a0a0a0]"><i
+                            class="fa-solid fa-location-dot text-[#18ece9] mr-4 text-[1.5rem] w-[30px]"></i>Letang,
+                        Nepal</p>
 
                     <div class="my-8">
                         <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
@@ -716,15 +821,16 @@
                         <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
 
-                    <button class="btn1"><a href="assests/Dikshit_CV.pdf" download="Dikshit_CV.pdf"> <i class="fas fa-download"></i>Download CV</a></button>
+                    <button class="btn1"><a href="assests/Dikshit_CV.pdf" download="Dikshit_CV.pdf"> <i
+                                class="fas fa-download"></i>Download CV</a></button>
                 </div>
 
                 <!-- Right -->
                 <div class="flex-1 min-w-[300px]">
                     <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
 
-                        
-  <input type="hidden" name="access_key" value="524aba3c-57f0-4dfb-a053-f31f63a948f4">
+
+                        <input type="hidden" name="access_key" value="524aba3c-57f0-4dfb-a053-f31f63a948f4">
                         <input type="text" name="name" placeholder="Enter your name" required />
                         <input type="email" name="email" placeholder="Enter your email" required />
                         <textarea name="message" rows="6" placeholder="Enter your message" required></textarea>
@@ -737,10 +843,12 @@
 
     <!-- ===== COPYRIGHT ===== -->
     <div id="copyright" class="bg-[#1a1a2e] py-[25px] text-center border-t border-[rgba(255,255,255,0.05)]">
-        <p class="text-[#a0a0a0] text-base">Copyright <i class="fa-regular fa-copyright"></i> 2023 Dikshit. Made with <i style="color: red;" class="fa-solid fa-heart"></i></p>
+        <p class="text-[#a0a0a0] text-base">Copyright <i class="fa-regular fa-copyright"></i> 2023 Dikshit. Made with <i
+                style="color: red;" class="fa-solid fa-heart"></i></p>
     </div>
 
     <script src="portfolio.js"></script>
 
 </body>
+
 </html>
